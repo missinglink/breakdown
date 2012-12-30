@@ -6,11 +6,9 @@
 # just require this in your code and be happy...
 #
 
-CoffeeTrace = require './lib/CoffeeTrace'
-coffeetrace = new CoffeeTrace
+Trace = require './lib/Trace'
 
 views =
-  header: require './view/header'
   source: require './view/source'
   help: require './view/help'
   stacktrace: require './view/stacktrace'
@@ -18,24 +16,22 @@ views =
 
 process.on 'uncaughtException', (err) ->
 
-  trace = CoffeeTrace.trace err
+  trace = new Trace err
   if trace
 
     views.newline()
     views.stacktrace trace
     views.newline()
 
-    views.header
-      title: 'Source'
-      error: trace.line
-      filename: trace.file.filename
+    for line in trace.stack.lines[0..0]
 
-    views.source
-      lines: trace.file.lines
-      error: trace.line
-      margin: 3
+      if line.file
+        views.source line
+        views.newline()
 
     views.help trace
+
+    console.error err.stack
 
   else console.error err.stack
 

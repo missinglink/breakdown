@@ -1,13 +1,19 @@
 
-module.exports = (source) ->
+header = require './header'
 
-  for i in [(source.error - source.margin)..(source.error + source.margin)]
+module.exports = (stackLine,settings={margin:3}) ->
 
-    if line = source.lines[ i - 1 ]
+  header stackLine, 'Source'
 
-      line = line.substr( 0, 50 )
+  stackLine.row = Number( stackLine.row )
 
-      if source.error is Number i
+  for i in [(stackLine.row - settings.margin)..(stackLine.row + settings.margin)]
+
+    if line = stackLine.file.lines[ i - 1 ]
+
+      line = line.substr( 0, 80 )
+
+      if stackLine.row is Number i
 
         console.error " \x1b[1;31m✘\x1b[36m #{i}: \x1b[1;37m#{line}\x1b[0m"
 

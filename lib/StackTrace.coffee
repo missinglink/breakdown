@@ -6,6 +6,8 @@ class StackTrace
   constructor: ( stack ) ->
 
     @lines = []
-    stack.split( "\n" ).map ( line ) => @lines.push new StackTraceLine line
+    stack.split( "\n" ).map ( line ) =>
+      trace = new StackTraceLine line
+      @lines.push trace if trace.filename
 
 module.exports = StackTrace

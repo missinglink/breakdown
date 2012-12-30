@@ -1,5 +1,8 @@
 path = require 'path'
 
-module.exports = (fileInfo) ->
+module.exports = (stackLine,title) ->
 
-  console.error "\x1b[0;33m #{fileInfo.title}:\x1b[0m\x1b[1;37m #{fileInfo.filename}\x1b[33m:\x1b[1;34m#{fileInfo.error}\x1b[0m"
+  if stackLine.file
+
+    filename = stackLine.file.filename.replace process.cwd(), '.'
+    console.error "\x1b[0;33m #{title}:\x1b[0m\x1b[1;37m #{filename}\x1b[33m:\x1b[1;34m#{stackLine.row}\x1b[0m"
