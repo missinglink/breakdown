@@ -10,7 +10,6 @@ Trace = require './lib/Trace'
 
 views =
   source: require './view/source'
-  header: require './view/header'
   help: require './view/help'
   stacktrace: require './view/stacktrace'
   newline: -> console.log()
@@ -27,13 +26,11 @@ process.on 'uncaughtException', (err) ->
     for line in trace.stack.lines[0..0]
 
       if line.file
-        views.header line, 'Source'
-        views.source line
+        views.source line, title: 'Thrown', margin: 2
         views.newline()
 
     views.help trace
 
   else console.error err.stack
 
-  views.newline()
   process.exit()

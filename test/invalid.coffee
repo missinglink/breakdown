@@ -1,5 +1,9 @@
 module.exports =
-  badly
-    indented
+  badly:
+    indented:
 
-  file
+    file
+
+  (foo) ->
+
+    console.log foo

@@ -1,7 +1,12 @@
 
 header = require './header'
+_ = require 'underscore'
 
-module.exports = (stackLine,settings={margin:3}) ->
+module.exports = (stackLine,settings={}) ->
+
+  settings = _.extend { margin:3, title:undefined }, settings
+
+  header stackLine, settings.title
 
   stackLine.row = Number( stackLine.row )
 
@@ -13,8 +18,8 @@ module.exports = (stackLine,settings={margin:3}) ->
 
       if stackLine.row is Number i
 
-        console.error " \x1b[1;31m✘\x1b[36m #{i}: \x1b[1;37m#{line}\x1b[0m"
+        console.error " \x1b[1;31m✘\x1b[1;33m #{i}: \x1b[1;37m#{line}\x1b[0m"
 
       else
 
-        console.error " \x1b[0;36m  #{i}: \x1b[1;30m#{line}\x1b[0m"
+        console.error " \x1b[0;33m  #{i}: \x1b[1;30m#{line}\x1b[0m"
