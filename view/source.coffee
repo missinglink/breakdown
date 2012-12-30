@@ -3,13 +3,11 @@ header = require './header'
 
 module.exports = (stackLine,settings={margin:3}) ->
 
-  header stackLine, 'Source'
-
   stackLine.row = Number( stackLine.row )
 
   for i in [(stackLine.row - settings.margin)..(stackLine.row + settings.margin)]
 
-    if line = stackLine.file.lines[ i - 1 ]
+    if undefined != ( line = stackLine.file.lines[ i - 1 ] )
 
       line = line.substr( 0, 80 )
 
