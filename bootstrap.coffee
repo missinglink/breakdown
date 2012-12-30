@@ -11,6 +11,7 @@ Trace = require './lib/Trace'
 views =
   source: require './view/source'
   help: require './view/help'
+  hero: require './view/hero'
   stacktrace: require './view/stacktrace'
   newline: -> console.log()
 
@@ -19,6 +20,8 @@ process.on 'uncaughtException', (err) ->
   trace = new Trace err
   if trace
 
+    views.newline()
+    views.hero()
     views.newline()
     views.stacktrace trace
     views.newline()
