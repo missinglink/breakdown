@@ -1,4 +1,4 @@
-require '../'
+require '../bootstrap'
 
 test = ->
   people =
@@ -8,7 +8,12 @@ test = ->
     mary:
       first_name: 'mary'
       last_name: 'jane'
+
+  require './invalid'
   
+  throw new Erro 'palevioletred'
   console.log("Welcome", people[p].first_name, people[p].last_name, "!!!") for p in ['john', 'mary', 'josh']
 
-process.nextTick test
+delegate = -> test()
+
+process.nextTick delegate

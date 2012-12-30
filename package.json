@@ -1,7 +1,7 @@
 { "name": "coffee-trace"
 , "version": "1.3.1"
 , "engines": ["node >= 0.4.0"]
-, "main": "./lib/coffee-trace.coffee"
+, "main": "./bootstrap.coffee"
 , "dependencies": {
       "coffee-script": "*"
   }
