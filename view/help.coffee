@@ -30,7 +30,7 @@ module.exports = (trace) ->
           if typo = line.replace( /^([^:]+): Cannot read property '(.+)' of undefined/, "\x1b[1m'$2'\x1b[0m " ) || ''
             row = trace.stack.lines[0].row
             console.error "\x1b[1;34m Help:\x1b[0m"
-            console.error "  \x1b[0m The parent of #{typo}is not defined at \x1b[1;33m#{file}\x1b[0m:\x1b[1;34m#{row}\x1b[0m"
+            console.error "  \x1b[0m The parent of #{typo}is undefined at \x1b[1;33m#{file}\x1b[0m:\x1b[1;34m#{row}\x1b[0m"
             console.log()
 
         when 'Error'
