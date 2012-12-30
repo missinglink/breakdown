@@ -12,8 +12,16 @@ module.exports = (trace) ->
     output = line
 
     trace.stack.lines.map (stackLine) ->
-      filename = stackLine.filename.replace /(.+\/)(.+)$/, "$1\x1b[0m$2\x1b[0m"
-      output = output.replace stackLine.line, "\x1b[0;33m#{filename}\x1b[0m:\x1b[1;34m#{stackLine.row}\x1b[0m"
+
+      filename = stackLine.filename.replace /(.+)/, "\x1b[0;33m$1\x1b[0m"
+
+      basename = path.basename stackLine.filename
+      filename = filename.replace basename, "\x1b[1;33m#{basename}\x1b[0m"
+
+      if not stackLine.column
+        output = output.replace stackLine.line, "\x1b[0;33m#{filename}\x1b[0m:\x1b[1;34m#{stackLine.row}\x1b[0m"
+
+      else output = output.replace stackLine.line, "\x1b[0;33m#{filename}\x1b[0m:#{stackLine.row}:#{stackLine.column}\x1b[0m"
 
     output = output.replace process.cwd(), '.'
     output = output.replace /\((.+)\)/, "$1"

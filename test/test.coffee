@@ -9,9 +9,9 @@ test = ->
       first_name: 'mary'
       last_name: 'jane'
 
-  require './invalid'
+  # require './invalid'
   
-  throw new Erro 'palevioletred'
+  # throw new Error 'palevioletred'
   console.log("Welcome", people[p].first_name, people[p].last_name, "!!!") for p in ['john', 'mary', 'josh']
 
 delegate = -> test()
