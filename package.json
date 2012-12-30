@@ -1,8 +1,8 @@
 {
   "name": "breakdown",
   "preferGlobal": "false",
-  "version": "0.0.1",
-  "description": "Change the error of your ways",
+  "version": "0.0.3",
+  "description": "Top class error reporting for js & coffee-script",
   "dependencies": {
     "coffee-script": "1.4.x",
     "underscore": "1.4.x"
