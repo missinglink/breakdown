@@ -5,6 +5,14 @@ Top class error reporting for js & coffee-script
 Install
 --------
 
+```bash
+npm install breakdown
+```
+
+Configure
+---------
+Breakdown will handle all uncaught exceptions
+
 ```coffee-script
 # Far better error stack debugging. Do not use in production!
 unless process.env.NODE_ENV
@@ -17,4 +25,12 @@ unless process.env.NODE_ENV
     breakdown err
     res.writeHead 500, 'Content-Type': 'text/plain'
     res.end err.stack
+```
+
+Usage
+-----
+
+```coffee-script
+breakdown = require 'breakdown'
+breakdown new Error 'Hello World'
 ```
