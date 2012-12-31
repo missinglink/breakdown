@@ -1,6 +1,6 @@
 {
   "name": "breakdown",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Top class error reporting for js & coffee-script",
   "main": "./bootstrap.coffee",
   "dependencies": {

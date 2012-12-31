@@ -7,7 +7,7 @@ Install
 
 ```coffee-script
 # Far better error stack debugging. Do not use in production!
-if not process.env.NODE_ENV
+unless process.env.NODE_ENV
 
   # Breakdown will handle all uncaught exceptions
   breakdown = require 'breakdown'
