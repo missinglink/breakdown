@@ -1,6 +1,6 @@
 {
   "name": "breakdown",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Top class error reporting for js & coffee-script",
   "main": "./bootstrap.coffee",
   "dependencies": {
@@ -10,5 +10,15 @@
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Peter Johnson",
+      "email": "peter@missinglink.co.nz"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/missinglink/breakdown.git"
+  },
 }
