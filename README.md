@@ -34,3 +34,7 @@ Usage
 breakdown = require 'breakdown'
 breakdown new Error 'Hello World'
 ```
+
+Screenshot
+----------
+![Breakdown](https://github.com/missinglink/breakdown/raw/master/img/screenshot.png "Breakdown")
