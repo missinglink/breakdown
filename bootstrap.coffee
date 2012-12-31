@@ -26,13 +26,13 @@ process.on 'uncaughtException', (err) ->
     views.stacktrace trace
     views.newline()
 
-    totalLines = 1
+    totalLines = 2
     hadCoffee = false
 
-    for line in trace.stack.lines[0..(totalLines-1)]
+    for ord, line of trace.stack.lines[0..(totalLines-1)]
 
       if line.file
-        views.source line, title: 'Thrown', margin: 2
+        views.source line, title: ( if Number(ord) is 0 then 'Thrown' else 'Previous' ), margin: 2
         views.newline()
         hadCoffee = true
 
