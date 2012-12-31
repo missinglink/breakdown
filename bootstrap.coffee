@@ -15,7 +15,7 @@ views =
   stacktrace: require './view/stacktrace'
   newline: -> console.log()
 
-process.on 'uncaughtException', (err) ->
+module.exports = breakdown = (err) ->
 
   trace = new Trace err
   if trace
@@ -47,3 +47,5 @@ process.on 'uncaughtException', (err) ->
     views.help trace
 
   else console.error err.stack
+
+process.on 'uncaughtException', breakdown
