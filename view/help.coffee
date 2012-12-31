@@ -48,6 +48,6 @@ module.exports = (trace) ->
             console.log()
             newtrace = new StackTraceLine "(#{filename}:#{lineno}:0)"
             newtrace.file = new File filename
-            source newtrace, title: 'Related'
+            source newtrace, title: 'Coffee', margin: 5
             console.log()
 
