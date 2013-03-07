@@ -21,7 +21,10 @@ class TokenMatcher
   @compare: ( tokens1, tokens2 ) ->
 
     score = 0
-    tokens1.map (t) -> score++ if tokens2.indexOf( t ) > -1
+
+    if tokens2
+      tokens1.map (t) -> score++ if tokens2.indexOf( t ) > -1
+
     return score
 
 module.exports = TokenMatcher
