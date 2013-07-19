@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Breakdown by missinglink</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Breakdown</h1>
+        <p class="header">Top class error reporting for js &amp; coffee-script</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/missinglink/breakdown/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/missinglink/breakdown/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/missinglink/breakdown">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/missinglink">missinglink</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="breakdown" class="anchor" href="#breakdown"><span class="octicon octicon-link"></span></a>Breakdown</h1>
+
+<p>Top class error reporting for js &amp; coffee-script</p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<div class="highlight"><pre>npm install breakdown
+</pre></div>
+
+<h2>
+<a name="configure" class="anchor" href="#configure"><span class="octicon octicon-link"></span></a>Configure</h2>
+
+<p>Breakdown will handle all uncaught exceptions</p>
+
+<div class="highlight"><pre><span class="c1"># Far better error stack debugging. Do not use in production!</span>
+<span class="k">unless</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span>
+
+  <span class="c1"># Breakdown will handle all uncaught exceptions</span>
+  <span class="nv">breakdown = </span><span class="nx">require</span> <span class="s">'breakdown'</span>
+
+  <span class="c1"># Set as default error handler for express</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span> <span class="nf">(err,req,res,next) -&gt;</span>
+    <span class="nx">breakdown</span> <span class="nx">err</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span> <span class="mi">500</span><span class="p">,</span> <span class="s">'Content-Type'</span><span class="o">:</span> <span class="s">'text/plain'</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span> <span class="nx">err</span><span class="p">.</span><span class="nx">stack</span>
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight"><pre><span class="nv">breakdown = </span><span class="nx">require</span> <span class="s">'breakdown'</span>
+<span class="nx">breakdown</span> <span class="k">new</span> <span class="nb">Error</span> <span class="s">'Hello World'</span>
+</pre></div>
+
+<h2>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<pre><code>TypeError: Cannot read property 'first_name' of undefined
+    at test (/var/www/breakdown/test/test.coffee:22:53)
+    at delegate (/var/www/breakdown/test/test.coffee:28:12)
+    at process.startup.processNextTick.process._tickCallback (node.js:244:9)
+</code></pre>
+
+<h2>
+<a name="screenshot" class="anchor" href="#screenshot"><span class="octicon octicon-link"></span></a>Screenshot</h2>
+
+<p><img src="https://github.com/missinglink/breakdown/raw/master/img/screenshot.png" alt="Breakdown" title="Breakdown"></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-42590738-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
