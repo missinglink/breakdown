@@ -1,6 +1,6 @@
 {
   "name": "breakdown",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Top class error reporting for js & coffee-script",
   "dependencies": {
     "coffee-script": "1.4.x",
