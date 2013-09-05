@@ -47,3 +47,6 @@ TypeError: Cannot read property 'first_name' of undefined
 Screenshot
 ----------
 ![Breakdown](https://github.com/missinglink/breakdown/raw/master/img/screenshot.png "Breakdown")
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/missinglink/breakdown/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
