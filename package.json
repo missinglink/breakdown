@@ -1,14 +1,10 @@
 {
   "name": "breakdown",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Top class error reporting for js & coffee-script",
   "dependencies": {
     "coffee-script": "1.4.x",
     "underscore": "1.4.x"
-  },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
   },
   "contributors": [
     {
